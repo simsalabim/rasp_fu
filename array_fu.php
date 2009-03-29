@@ -2,13 +2,13 @@
 	
 	/**
 	 * @author cheef, simsalabim
-	 * Adding array functionalyto into project
+	 * Adding array functionality into project
 	 */
 	
 	class ArrayFu {
 		
 		/**
-		 * @return array of keys of input array
+		 * @return array $result of keys of input array
 		 * @param array $array
 		 */
 		public static function keysAsValues($array){
@@ -19,7 +19,7 @@
 		}
 		
 		/**
-		 * @return value of first element of input array (or it's key if $returnKey is true)
+		 * @return mixed $element(or $key)  value of first element of input array (or it's key if $returnKey is true)
 		 * @param array $array
 		 */
 		public  static function first($array, $returnKey = false){
@@ -27,7 +27,7 @@
 		}
 		
 		/**
-		 * @return value of second element of input array (or it's key if $returnKey is true)
+		 * @return mixed $element(or $key)  value of second element of input array (or it's key if $returnKey is true)
 		 * @param array $array
 		 */
 		function second($array, $returnKey = false){
@@ -39,7 +39,7 @@
 		}
 		
 		/**
-		 * @return value of last element of input array (or it's key if $returnKey is true)
+		 * @return mixed $element(or $key)  value of last element of input array (or it's key if $returnKey is true)
 		 * @param array $array
 		 * @param bool $returnKey[optional]
 		 */
@@ -65,7 +65,7 @@
 		}
 		
 		/**
-		 * @return associative array with keys 'key' and 'value' containing sequentively key and value of searching element of input array
+		 * @return array('key' => $key, 'value' => $value) associative array with keys 'key' and 'value' containing sequentively key and value of searching element of input array
 		 * @param object $array
 		 * @param int $sequentive[optional] sequentive number of searching element
 		 */
@@ -79,7 +79,7 @@
 		}
 		
 		/**
-		 * @return true if element of input array with given index exists and not empty, else false. Private method
+		 * @return bool true if element of input array with given index exists and not empty, else false. Private method
 		 * @param array $array
 		 * @param string $index
 		 */
@@ -88,7 +88,7 @@
 		}
 	
 		/**
-		 * @return true if element(s) of input array with given indexe(s) exist and not empty, else false
+		 * @return bool true if element(s) of input array with given indexe(s) exist and not empty, else false
 		 * @param array $array
 		 * @param array or string $indexes  array of strings or a single string(if you wanna check only 1 element).
 		 */
@@ -102,7 +102,7 @@
 		}
 		
 		/**
-		 * @return true if element of input array with given index exists and is empty, else false. Private method
+		 * @return bool true if element of input array with given index exists and is empty, else false. Private method
 		 * @param array $array
 		 * @param string $index
 		 */
@@ -113,7 +113,7 @@
 		}
 	
 		/**
-		 * @return true if element(s) of input array with given indexe(s) exist and are empty, else false
+		 * @return bool true if element(s) of input array with given indexe(s) exist and are empty, else false
 		 * @param array $array
 		 * @param array or string $indexes  array of strings or a single string(if you wanna check only 1 element)
 		 */
@@ -127,7 +127,7 @@
 		}
 		
 		/**
-		 * @return true if element of input array with given index exists and it's value returns true. Else false
+		 * @return bool true if element of input array with given index exists and it's value returns true. Else false
 		 * @param array $array
 		 * @param index $index
 		 */
@@ -147,7 +147,7 @@
 		}
 	
 		/**
-		 * @return value of an element of input array with given index. Also removes this element from input array
+		 * @return mixed  $value of an element of input array with given index. Also removes this element from input array
 		 * @param array $array
 		 * @param string $index
 		 */

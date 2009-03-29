@@ -10,7 +10,8 @@
 	class Utils {
 		
 		/**
-		 * @return prints $value with info about file/line where debug was called. writes it into log if $logging is true prepending with $startlog phrase
+		 * Prints $value with info about file/line where debug was called. writes it into log if $logging is true prepending with $startlog phrase
+		 * @return void
 		 * @param mixed $value[optional]
 		 * @param bool $logging[optional]
 		 * @param string $startLog[optional]
@@ -39,9 +40,10 @@
 		}
 		
 		/**
-		 * @return Same as debug but as an addition stop scripts
-		 * prints $value with info about file/line where debug was called. writes it into log if $logging is true prepending with $startlog phrase
+		 * Same as debug but as an addition stop scripts
+		 * Prints $value with info about file/line where debug was called. writes it into log if $logging is true prepending with $startlog phrase
 		 * dies ;-)
+		 * @return void
 		 * @param mixed $value[optional]
 		 * @param bool $logging[optional]
 		 * @param string $startLog[optional]
@@ -70,10 +72,10 @@
 		}
 		
 		/**
-		 * @return true if input e-mail is valid, false if not
-		 * @param string $email
 		 * RFC822 Email Parser By Cal Henderson <cal@iamcal.com>
 		 * This code is licensed under a Creative Commons Attribution-ShareAlike 2.5 License
+		 * @return true if input e-mail is valid, false if not
+		 * @param string $email
 		 */
 		public static function isEmailValid($email){
 			$qtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
