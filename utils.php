@@ -48,7 +48,7 @@
 		 * @param bool $logging[optional]
 		 * @param string $startLog[optional]
 		 */
-		public static function debugDie($value = null, $logging = false, $startLog = 'log debug'){
+		public static function debug_die($value = null, $logging = false, $startLog = 'log debug'){
 			$config = new Config();
 			switch($config->get('debugLevel')){
 				case 0: return;
@@ -77,7 +77,7 @@
 		 * @return true if input e-mail is valid, false if not
 		 * @param string $email
 		 */
-		public static function isEmailValid($email){
+		public static function is_email_valid($email){
 			$qtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
 	        $dtext = '[^\\x0d\\x5b-\\x5d\\x80-\\xff]';
 	        $atom = '[^\\x00-\\x20\\x22\\x28\\x29\\x2c\\x2e\\x3a-\\x3c'.

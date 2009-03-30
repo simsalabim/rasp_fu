@@ -11,7 +11,7 @@
 		 * @return array $result of keys of input array
 		 * @param array $array
 		 */
-		public static function keysAsValues($array){
+		public static function keys($array){
 			$result = array();
 			foreach ($array as $key => $value)
 				$result[$value] = $value;		
@@ -59,7 +59,7 @@
 		 * @param string $index
 		 * @param [bool] $returning[optional]
 		 */
-		public static function getIndex($array, $index, $returning = false){
+		public static function index($array, $index, $returning = false){
 			if(isset($array[$index]) && !empty($array[$index])) return $array[$index];
 			return $returning;
 		}
@@ -69,7 +69,7 @@
 		 * @param object $array
 		 * @param int $sequentive[optional] sequentive number of searching element
 		 */
-		public static function getAssocPair($array, $sequentive = 0){
+		public static function get_assoc_pair($array, $sequentive = 0){
 			$index = 0;
 			foreach($array as $key => $value){
 				if($sequentive == $index) return array('key' => $key, 'value' => $value);
@@ -83,7 +83,7 @@
 		 * @param array $array
 		 * @param string $index
 		 */
-		private function isNotEmptyCheck($array, $index){
+		private function is_not_empty_check($array, $index){
 			return (isset($array[$index]) && !empty($array[$index]));
 		}
 	
@@ -92,13 +92,13 @@
 		 * @param array $array
 		 * @param array or string $indexes  array of strings or a single string(if you wanna check only 1 element).
 		 */
-		public static function isNotEmpty($array, $indexes){
+		public static function is_not_empty($array, $indexes){
 			if(is_array($indexes)) {
 				foreach($indexes as $index)
-					if(!self::isNotEmptyCheck($array, $index)) return false;
+					if(!self::is_not_empty_check($array, $index)) return false;
 				return true;
 			}
-			return self::isNotEmptyCheck($array, $indexes);
+			return self::is_not_empty_check($array, $indexes);
 		}
 		
 		/**
@@ -106,7 +106,7 @@
 		 * @param array $array
 		 * @param string $index
 		 */
-		private function isEmptyCheck($array, $index){
+		private function is_empty_check($array, $index){
 			if (!isset($array[$index])) return true;
 			if (isset($array[$index]) && ($array[$index] == false)) return false;
 			return (isset($array[$index]) && empty($array[$index]));
@@ -117,13 +117,13 @@
 		 * @param array $array
 		 * @param array or string $indexes  array of strings or a single string(if you wanna check only 1 element)
 		 */
-		public static function isEmpty($array, $indexes){
+		public static function is_empty($array, $indexes){
 			if(is_array($indexes)){
 				foreach($indexes as $index)
-					if(!self::isEmptyCheck($array, $index)) return false;
+					if(!self::is_empty_check($array, $index)) return false;
 				return true;
 			}
-			return self::isEmptyCheck($array, $indexes);
+			return self::is_empty_check($array, $indexes);
 		}
 		
 		/**
@@ -131,7 +131,7 @@
 		 * @param array $array
 		 * @param index $index
 		 */
-		public static function isTrue($array, $index){
+		public static function is_true($array, $index){
 			return ((isset($array[$index]) && $array[$index]) ? true : false);
 		}
 		

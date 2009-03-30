@@ -7,9 +7,9 @@
 	
 	class Config{
 		
-		protected $_debugLevel;
-		protected $_environment;
-		protected $_debugLog;
+		protected $debugLevel;
+		protected $environment;
+		protected $debugLog;
 		
 		/**
 		 * @return Config instance with properties defined by environment
@@ -17,7 +17,7 @@
 		 */
 		public function Config($env = 'dev'){
 			$this->debugLog =  dirname(__FILE__) . '/debug.log';
-			return $this->set($this->setEnvironment($env));
+			return $this->set($this->set_environment($env));
 		}
 		
 		/**
@@ -43,7 +43,7 @@
 		 * @return array of config options depend of environment type defined below
 		 * @param string $env
 		 */
-		public function setEnvironment($env){
+		public function set_environment($env){
 			$this->_environment = $env;
 			switch($this->_environment){
 				case 'dev': case 'development': return array('debugLevel' => 1);
