@@ -1,5 +1,5 @@
 <?php
-	class Socket {
+	class RaspSocket {
 		public $connection, $error_number = '', $error_value = '';
 
 		public function Socket($url, $options = array()){

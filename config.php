@@ -1,11 +1,5 @@
 <?php
-	
-	/**
-	 * @author simsalabim, cheef
-	 * Adding array functionalyto into project
-	 */
-	
-	class Config{
+	class RaspConfig {
 		
 		protected $debugLevel;
 		protected $environment;

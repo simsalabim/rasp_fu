@@ -1,5 +1,5 @@
 <?php
- class Requester {
+ class RaspRequester {
  	public $handler;
 
  	public function Requester($options = array()){
