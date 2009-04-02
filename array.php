@@ -1,11 +1,10 @@
 <?php
-	
 	/**
 	 * @author cheef, simsalabim
 	 * Adding array functionality into project
 	 */
 	
-	class ArrayFu {
+	class RaspArray {
 		
 		/**
 		 * @return array $result of keys of input array

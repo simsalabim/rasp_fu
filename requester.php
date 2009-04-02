@@ -1,6 +1,7 @@
 <?php
- class Requester {
- 	public $handler, $response_body, $response_header;
+
+ class RaspRequester {
+ 	public $handler;
 
  	public function Requester($options = array()){
 		$this->handler = curl_init();

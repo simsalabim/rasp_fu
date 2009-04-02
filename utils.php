@@ -2,12 +2,12 @@
 
 	/**
 	 * @author simsalabim, cheef
-	 * Adding array functionalyto into project
+	 * Adding basic utils functionality into project
 	 */
 
 	require_once 'config.php';
 	
-	class Utils {
+	class RaspUtils {
 		
 		/**
 		 * Prints $value with info about file/line where debug was called. writes it into log if $logging is true prepending with $startlog phrase
