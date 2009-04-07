@@ -1,20 +1,25 @@
 <?php
 	require_once RASP_TOOLS_PATH . 'abstract_tool.php';
+	require_once RASP_RESOURCES_PATH . 'file.php';
 
 	class RaspLogger extends RaspAbstractTool{
 
-		public static $logger;
+		public static $current;
 
-		public $file_name, $handler, $file;
+		public $file_name, $file;
 
-		public function RaspLogger($file_name = ''){
-			$this->file_name = $file_name;
+		public function RaspLogger($options = array()){
+			$this->initilize($options);
+		}
+
+		public function initilize($options){
+			if(isset($options['file_name'])) $this->file_name = $options['file_name'];
 		}
 
 		public static function save($message){
-			self::$logger->open_log_file();
-			$returning = fwrite(self::$logger->handler, $message);
-			self::$logger->close_log_file();
+			self::$current->open();
+			$returning = self::$current->file->write($message);
+			self::$current->close();
 			return $returning;
 		}
 
@@ -23,16 +28,16 @@
 			return self::save($message);
 		}
 
-		private function open_log_file(){
-			$this->handler = fopen($this->file_name, 'a');
+		private function open(){
+			return ($this->file = new RaspFile(array('source' => $this->file_name, 'mode' => 'a')));
 		}
 
-		private function close_log_file(){
-			fclose($this->handler);
+		private function close(){
+			return $this->file->close();
 		}
 
-		public static function create($file_name){
-			self::$logger = new Logger($file_name);
+		public static function create($options){
+			self::$current = new RaspLogger($options);
 		}
 	}
 ?>

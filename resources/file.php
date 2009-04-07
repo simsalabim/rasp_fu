@@ -4,16 +4,16 @@
 
 	class RaspFile extends RaspAbstractResource {
 
-		public $handler = null, $path = null;
+		public $handler = null, $source = null;
 
 		public function RaspFile($options = array()){
 			$this->initilize($options);
 		}
 
 		public function initilize($options){
-			if(isset($options['path'])){
-				$this->path = $options['path'];
-				return ($this->handler = fopen($this->path, RaspArray::index($options, 'mode', 'r')));
+			if(isset($options['source'])){
+				$this->source = $options['source'];
+				return ($this->handler = fopen($this->source, RaspArray::index($options, 'mode', 'r')));
 			} else return false;
 		}
 
@@ -33,5 +33,4 @@
 			return feof($this->handler);
 		}
 	}
-
 ?>

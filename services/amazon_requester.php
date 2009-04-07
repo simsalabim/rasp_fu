@@ -1,5 +1,7 @@
 <?php
-	class AmazonRequester {
+	require_once RASP_SERVICES_PATH . 'abstract_service.php';
+
+	class RaspAmazonRequester extends RaspAbstractService {
 
 		public function send($request_params, $connection_params){
 			$headers = "GET /onca/xml?" . join('&', self::to_get_variables($request_params)) . " HTTP/1.0\r\n";
@@ -25,7 +27,7 @@
 			$request_params = array_merge($default_options, $options);
 			$request_params['SellerId'] = $seller_id;
 
-			$response = AmazonRequester::send($request_params, array('url' => 'ecs.amazonaws.com', 'port' => 80, 'timeout' => 60));
+			$response = RaspAmazonRequester::send($request_params, array('url' => 'ecs.amazonaws.com', 'port' => 80, 'timeout' => 60));
 			preg_match('/(\<\?xml(?:.*))/', $response, $data);
 			return $data[1];
 		}
