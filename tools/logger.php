@@ -1,9 +1,13 @@
 <?php
-	class Logger {
-		public static $logger;
-		public $file_name, $handler;
+	require_once RASP_TOOLS_PATH . 'abstract_tool.php';
 
-		public function Logger($file_name = ''){
+	class RaspLogger extends RaspAbstractTool{
+
+		public static $logger;
+
+		public $file_name, $handler, $file;
+
+		public function RaspLogger($file_name = ''){
 			$this->file_name = $file_name;
 		}
 
