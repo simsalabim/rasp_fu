@@ -17,15 +17,27 @@
 
 		public static function request_items_by_seller($seller_id, $options){
 			$default_options = array(
-					'Service' => 'AWSECommerceService',
-					'AWSAccessKeyId' => '1R01RXJ88EWPHG5RBTR2',
-					'Operation' => 'SellerListingSearch',
-					'ResponseGroup' => 'SellerListing',
-					'SearchIndex' => 'Books',
-					'ListingPage' => 1
+				'Service' => 'AWSECommerceService',
+				'Operation' => 'SellerListingSearch',
+				'ResponseGroup' => 'SellerListing',
+				'SearchIndex' => 'Books',
+				'ListingPage' => 1
 			);
 			$request_params = array_merge($default_options, $options);
 			$request_params['SellerId'] = $seller_id;
+
+			$response = RaspAmazonRequester::send($request_params, array('url' => 'ecs.amazonaws.com', 'port' => 80, 'timeout' => 60));
+			preg_match('/(\<\?xml(?:.*))/', $response, $data);
+			return $data[1];
+		}
+
+		public static function request_item_by_asin($item_id, $options){
+			$default_options = array(
+				'Service' => 'AWSECommerceService',
+				'Operation' => 'ItemLookup'
+			);
+			$request_params = array_merge($default_options, $options);
+			$request_params['ItemId'] = $item_id;
 
 			$response = RaspAmazonRequester::send($request_params, array('url' => 'ecs.amazonaws.com', 'port' => 80, 'timeout' => 60));
 			preg_match('/(\<\?xml(?:.*))/', $response, $data);
