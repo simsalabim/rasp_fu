@@ -4,7 +4,10 @@
 
 	class RaspLogger extends RaspAbstractTool{
 
-		public static $current;
+		public static $current,
+			$options = array(
+				'silence' => true
+			);
 
 		public $file_name, $file;
 
@@ -21,6 +24,17 @@
 			$returning = self::$current->file->write($message);
 			self::$current->close();
 			return $returning;
+		}
+
+		public static function set($options, $value = null){
+			if(is_array($options)) {
+				foreach($options as $option => $value) self::$options[$option] = $value;
+				return true;
+			} else return self::$options[$options] = $value;
+		}
+
+		public static function get($option){
+			return self::$options[$option];
 		}
 
 		public static function save_and_print($message){
