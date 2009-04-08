@@ -1,9 +1,10 @@
 <?php
-	class RaspMemory {
+	require_once RASP_RESOURCES_PATH . 'abstract_resource.php';
+
+	class RaspMemory extends RaspAbstractResource {
 		public static function free(&$variable){
 			if (method_exists($variable,'__destroy')) $variable->__destroy();
 			$variable = null;
-			unset($variable);
 		}
 
 		public static function show(){
