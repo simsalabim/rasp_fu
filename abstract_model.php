@@ -1,5 +1,5 @@
 <?php
-	class AbstractModel {
+	class RaspAbstractModel {
 
 		public function __destruct(){
 			$attributes = get_object_vars($this);

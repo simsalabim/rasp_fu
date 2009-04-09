@@ -8,35 +8,36 @@
 
 	class RaspArray extends RaspAbstractType {
 
-		/**
-		 * @return array $result of keys of input array
-		 * @param array $array
-		 */
-		public static function keys($array){
+		public static function revert($array){
 			$result = array();
-			foreach ($array as $key => $value)
-				$result[$value] = $value;
+			foreach ($array as $key => $value) $result[$value] = $value;
 			return $result;
 		}
 
+		public static function keys($array){
+			$result = array();
+			foreach($array as $key => $value) $result[] = $key;
+			return $result;
+		}
 		/**
 		 * @return mixed $element(or $key)  value of first element of input array (or it's key if $returnKey is true)
 		 * @param array $array
 		 */
-		public  static function first($array, $returnKey = false){
-			foreach($array as $key => $element) if($returnKey) return $key; else return $element;
+		public  static function first($array, $return_key = false){
+			foreach($array as $key => $element) return ($return_key ?  $key : $element);
 		}
 
 		/**
 		 * @return mixed $element(or $key)  value of second element of input array (or it's key if $returnKey is true)
 		 * @param array $array
 		 */
-		function second($array, $returnKey = false){
+		function second($array, $return_key = false){
 			$counter = 1;
-			foreach($array as $key => $element)
-				if($counter == 2) if($returnKey) return $key; else return $element;
+			foreach($array as $key => $element){
+				if($counter == 2) return ($return_key ?  $key : $element);
 				$counter++;
-			return array();
+			}
+			return null;
 		}
 
 		/**
