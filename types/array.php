@@ -8,12 +8,6 @@
 
 	class RaspArray extends RaspAbstractType {
 
-		public static function revert($array){
-			$result = array();
-			foreach ($array as $key => $value) $result[$value] = $value;
-			return $result;
-		}
-
 		public static function keys($array){
 			$result = array();
 			foreach($array as $key => $value) $result[] = $key;

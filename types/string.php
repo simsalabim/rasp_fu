@@ -5,8 +5,11 @@
 	class RaspString extends RaspAbstractType {
 
 		public static function underscore($string) {
-			$string = strtolower(preg_replace('/(?<=\w)([A-Z])(?=[a-z])/', '_\\1', $string));
-			return $string;
+			return strtolower(preg_replace('/(?<=\w)([A-Z])(?=[a-z])/', '_\\1', $string));
+		}
+		
+		function humanize($lowerCaseAndUnderscoredWord) {
+			return ucwords(str_replace('_', ' ', $lowerCaseAndUnderscoredWord));
 		}
 	}
 ?>
